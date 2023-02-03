@@ -6,13 +6,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "custom", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "turbo", type: "module" %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column">
     <%= render 'shared/headers' %>
-    <%= render 'layouts/messages' %>
-    <%= yield %>
+    <div id="page-content">
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>
